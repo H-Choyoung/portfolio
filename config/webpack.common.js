@@ -33,10 +33,10 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', "sass-loader"] //우->좌로 실행이 됨
-      }
+      // {
+      //   test: /\.css$/,
+      //   use: [MiniCssExtractPlugin.loader, 'css-loader'] //우->좌로 실행이 됨
+      // }
     ],
   },
   //설정 파일에 설치한 플러그인을 임포트한 후에, plugins 속성에 임포트한 플러그인을 추가
@@ -48,12 +48,12 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: 'react',
     }),
-    new webpack.DefinePlugin({
-      "process.env": JSON.stringify(process.env)
-    }),
-        new MiniCssExtractPlugin({
-      filename: 'style.css'
-    }),
+    // new webpack.DefinePlugin({
+    //   "process.env": JSON.stringify(process.env)
+    // }),
+    // new MiniCssExtractPlugin({
+    //   filename: 'style.css'
+    // }),
   ],
   resolve: {
     //object import나 require로 간단히 특정 모듈의 별칭을 만들 수 있음

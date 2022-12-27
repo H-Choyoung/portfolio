@@ -25,7 +25,9 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.(sa|sc|c)ss$/i, //loader를 적용시킬 파일 정규식 명시
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, 
+          'css-loader', 
+          'sass-loader'],
       },
     ],
   },

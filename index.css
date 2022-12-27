@@ -1,0 +1,9 @@
+body {
+  max-width: 768px;
+  min-width: 320px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+}
