@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/H-Choyoung/portfolio#readme",
   "dependencies": {
+    "@lottiefiles/react-lottie-player": "^3.5.0",
     "@types/cors": "^2.8.13",
     "@types/styled-components": "^5.1.26",
     "arkit": "^1.6.4",
