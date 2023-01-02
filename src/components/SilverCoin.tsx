@@ -13,34 +13,32 @@ const SilverCoinKey = keyframes`
 const SilverCoinStyle = styled.div`
   display: ${(props) => props.display || "none"};
   position: absolute;
-  left: -5rem;
+  left: -6rem;
   z-index: 1;
   animation: ${SilverCoinKey} 1.3s ease;
   animation-fill-mode: forwards;
   /* 하위요소 */
   #silverCoin1{
     position: relative; 
-    top: -8rem;
-    left: 11rem;
-    width: 70px;
+    top: 10rem;
+    left: 12rem;
+    width: 75px;
   }
   #silverCoin2{
     position: relative; 
-    top: -11rem;
-    left: 7rem;
+    top: 6rem;
+    left: 9rem;
     width: 80px;
   }
   `
 const SilverCoins = ({ display }: CSSProperties) => {
   return (
-    <>
-      <SilverCoinStyle
-        display={display}
-      >
-        <img id='silverCoin1' src={silverCoin}></img>
-        <img id='silverCoin2' src={silverCoin}></img>
-      </SilverCoinStyle>
-    </>
+    <SilverCoinStyle
+      display={display}
+    >
+      <img id='silverCoin1' src={silverCoin}></img>
+      <img id='silverCoin2' src={silverCoin}></img>
+    </SilverCoinStyle>
   )
 }
 

@@ -2,6 +2,17 @@ import { CSSProperties, useCallback, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
   let skullSpecial = "/img/skull_special.svg";
+  let skull1 = "/img/skull_1.svg";
+  let skull2 = "/img/skull_2.svg";
+  let skull3 = "/img/skull_3.svg";
+  let skulls = [skullSpecial, skull1, skull2, skull3];
+  
+  const RandomArrs = () => {
+    const randomDisplay = Math.floor(Math.random() * skulls.length);
+    let randomResult = skulls[randomDisplay];
+    console.log(randomResult);
+    return randomResult;
+  }
 
   const SkullKey = keyframes`
     0% {right: 0px; opacity: 0;}
@@ -12,21 +23,22 @@ import styled, { keyframes } from 'styled-components';
   `
   const SkullStyle = styled.img`
     display: ${(props) => props.display || "none"};
-    position: relative;
-    width: 100px;
+    position: absolute;
+    z-index: 1;
+    width: 95px;
     top: 1rem;
     left: 2.5rem;
     animation: ${SkullKey} 1.5s ease;
     animation-fill-mode: forwards;
     transition: 0.3s;
     `
-const SkullSpecial = ({ display }: CSSProperties) => {
+
+const Skulls = ({ display }: CSSProperties) => {
   return (
-      <SkullStyle
-        display={display}
-        src={skullSpecial}
-      ></SkullStyle>
+    <SkullStyle
+      display={display}
+      src={RandomArrs()}
+    ></SkullStyle>
   )
 }
-
-export default SkullSpecial;
+export default Skulls;

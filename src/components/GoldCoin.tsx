@@ -31,7 +31,7 @@ const LightStyle = styled.div`
   position: absolute;
   /* 하위요소 */
   #Light1 {
-    position: relative;
+    position: absolute;
     left: 4rem;
     z-index: 2;
     width: 100px;
@@ -40,20 +40,20 @@ const LightStyle = styled.div`
     animation-fill-mode: forwards;
   }
   #Light2 {
-    position: relative;
-    left: -7rem;
+    position: absolute;
+    top: 8rem;
+    left: 4rem;
     z-index: 2;
     width: 63px;
-    top: 0rem;
     animation: ${LightKey2} 1.9s ease infinite;
     animation-fill-mode: forwards;
   }
   #Light3 {
-    position: relative;
-    left: -12rem;
+    position: absolute;
+    top: 15rem;
+    left: 3rem;
     z-index: 2;
     width: 30px;
-    top: 4rem;
     animation: ${LightKey3} 1.3s ease infinite;
     animation-fill-mode: forwards;
   }
@@ -75,22 +75,28 @@ const GoldCoins = styled.div`
   animation-fill-mode: forwards;
   /* 하위요소 */
   #GoldCoin1{
-    position: relative; 
-    top: 4rem;
-    left: 5rem;
+    position: absolute; 
+    top: 6rem;
+    left: 7rem;
     width: 70px;
   }
   #GoldCoin2{
-    position: relative; 
+    position: absolute; 
     top: 2rem;
-    left: 0rem;
+    left: 5rem;
     width: 80px;
   }
   #GoldCoin3{
-    position: relative; 
-    top: 8.5rem;
-    left: -9rem;
+    position: absolute; 
+    top: 10rem;
+    left: 5rem;
     width: 71px;
+  }
+  #GoldCoin4{
+    position: absolute; 
+    top: 14rem;
+    left: 4rem;
+    width: 70px;
   }
   `
 /* 캐치문구 */
@@ -105,11 +111,12 @@ const CatchTextStyle = styled.span`
   display: ${(props) => props.display || "none"};
   position: absolute;
   z-index: 4;
+  left: 2rem;
   font-family: 'East Sea Dokdo', cursive;
   color: white;
-  left: 2rem;
+  white-space: nowrap;
   font-size: 2rem;
-  padding: 2rem 0;
+  padding: 10rem 0;
   rotate: -8deg;
   animation: ${CatchTextKey} 2s ease;
   animation-fill-mode: forwards;
@@ -117,7 +124,7 @@ const CatchTextStyle = styled.span`
 
 const GoldCoin = ({ display }:CSSProperties)=> {
   return (
-    <>
+    <div id='GoldCoins'>
       <CatchTextStyle display={display}>YOU GET THE TREASURE!</CatchTextStyle>
       <LightStyle display={display}>
         <img id='Light1' src={light}></img>
@@ -128,8 +135,9 @@ const GoldCoin = ({ display }:CSSProperties)=> {
         <img id='GoldCoin1' src={goldCoin}></img>
         <img id='GoldCoin2' src={goldCoin}></img>
         <img id='GoldCoin3' src={goldCoin}></img>
+        <img id='GoldCoin4' src={goldCoin}></img>
       </GoldCoins>
-    </>
+    </div>
   )
 }
 

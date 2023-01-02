@@ -1,19 +1,25 @@
 import { useCallback, useRef, useState } from 'react';
 import styled,{ keyframes } from 'styled-components';
-import "./App.css";
+import "../App.css";
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
-import GoldCoin from './components/GoldCoin';
-import SkullSpecial from './components/Skull_special';
-import SilverCoins from './components/SilverCoin';
+import GoldCoin from '../src/components/GoldCoin';
+import SkullSpecial from '../src/components/Skulls';
+import SilverCoins from '../src/components/SilverCoin';
 
-const Coffins2 = () => {
+const Coffins3 = () => {
   const [clicked, setClicked] = useState<any>("");
   const [display, setDisplay] = useState<any>("none");
   const [items, setItems] = useState<any>("");
 
   let coffinCloseB = "/img/coffin_close_black.svg";
   let coffinOpenB = "/img/coffin_open_black.svg";
+  let coffinCloseW = "/img/coffin_close_white.svg";
+  let coffinOpenW = "/img/coffin_open_white.svg";
 
+  const Container = styled.div`
+    position: absolute; 
+    left: 30rem;
+  `
   const CoffinKey = keyframes`
     0% {left: 0px;}
     100% {left: 50px; rotate: 23deg;}
@@ -35,20 +41,22 @@ const Coffins2 = () => {
       setItems("");
     }
   }
-
+  const OpenCoffinStyle = styled.img`
+    position: absolute; 
+    z-index: 0; 
+  `
   return (
     <>
-    <div>
+    <Container>
       <CoffinStyle
-        id='coffin'
         src={coffinCloseB}
         onClick={onClicked}
       ></CoffinStyle>
         <SkullSpecial display={display}></SkullSpecial>
         {/* <SilverCoins display={display}></SilverCoins> */}
-      <img src={coffinOpenB}></img>
-    </div>
+      <OpenCoffinStyle src={coffinOpenB}></OpenCoffinStyle>
+    </Container>
     </>
   )
 }
-export default Coffins2;
+export default Coffins3;
