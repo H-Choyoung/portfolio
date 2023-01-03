@@ -14,7 +14,7 @@ const SilverCoinStyle = styled.div`
   display: ${(props) => props.display || "none"};
   position: absolute;
   left: -6rem;
-  z-index: 1;
+  z-index: 2;
   animation: ${SilverCoinKey} 1.3s ease;
   animation-fill-mode: forwards;
   /* 하위요소 */

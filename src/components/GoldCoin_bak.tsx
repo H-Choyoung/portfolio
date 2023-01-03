@@ -4,16 +4,6 @@ import styled, { keyframes } from 'styled-components';
 
 let light = "/img/light_yellow.svg";
 let goldCoin = "/img/gold_coin.svg";
-let boomPaper = "/img/boom_paper.png";
-let goldItems = [goldCoin, boomPaper];
-
-const RandomArrs = () => {
-  const randomDisplay = Math.floor(Math.random() * goldItems.length);
-  let randomResult = goldItems[randomDisplay];
-  // console.log(randomResult);
-  return randomResult;
-}
-
   /* 빛 효과 스타일 */
 const LightKey1 = keyframes`
   0% {opacity: 0%;}
@@ -43,7 +33,7 @@ const LightStyle = styled.div`
   #Light1 {
     position: absolute;
     left: 4rem;
-    z-index: 3;
+    z-index: 2;
     width: 100px;
     top: -2rem;
     animation: ${LightKey1} 1.5s ease infinite;
@@ -51,18 +41,18 @@ const LightStyle = styled.div`
   }
   #Light2 {
     position: absolute;
-    top: 5rem;
-    left: 3rem;
-    z-index: 3;
+    top: 8rem;
+    left: 4rem;
+    z-index: 2;
     width: 63px;
     animation: ${LightKey2} 1.9s ease infinite;
     animation-fill-mode: forwards;
   }
   #Light3 {
     position: absolute;
-    top: 14rem;
-    left: 4rem;
-    z-index: 3;
+    top: 15rem;
+    left: 3rem;
+    z-index: 2;
     width: 30px;
     animation: ${LightKey3} 1.3s ease infinite;
     animation-fill-mode: forwards;
@@ -80,7 +70,7 @@ const GoldCoins = styled.div`
   display: ${(props) => props.display || "none"};
   position: absolute;
   left: 1rem;
-  z-index: 2;
+  z-index: 1;
   animation: ${GoldCoinKey} 1.3s ease;
   animation-fill-mode: forwards;
   /* 하위요소 */
@@ -98,18 +88,25 @@ const GoldCoins = styled.div`
   }
   #GoldCoin3{
     position: absolute; 
-    top: 8rem;
-    left: 3rem;
+    top: 10rem;
+    left: 5rem;
     width: 71px;
   }
   #GoldCoin4{
     position: absolute; 
-    top: 11rem;
+    top: 14rem;
     left: 4rem;
     width: 70px;
   }
   `
 /* 캐치문구 */
+const CatchTextKey = keyframes`
+  0% {right: 0px; opacity: 0%;}
+  50% {right: 10px; opacity: 0%;}
+  70% {opacity: 0%; top: 0px;}
+  90% {opacity: 100%; top: -10px;}
+  100% {right: 70px; opacity: 100%; top: 0px;}
+  `
 const CatchTextStyle = styled.span`
   display: ${(props) => props.display || "none"};
   position: absolute;
@@ -119,50 +116,32 @@ const CatchTextStyle = styled.span`
   color: white;
   white-space: nowrap;
   font-size: 2rem;
-  padding: 9rem 0;
+  padding: 10rem 0;
   rotate: -8deg;
-  box-shadow: rgba(0, 0, 0, 0.5) 1.95px 1.95px 2.6px;
-  animation: ${GoldCoinKey} 2s ease;
+  animation: ${CatchTextKey} 2s ease;
   animation-fill-mode: forwards;
   `
-
-/* 꽝 종이 */
 const BoomPaper = styled.img`
-  width: 9rem;
-  display: ${(props) => props.display || "none"};
-  position: absolute;
-  z-index: 2;
-  left: 3rem;
-  margin: 3rem 0;
-  rotate: -7deg;
-  animation: ${GoldCoinKey} 1.3s ease;
-  animation-fill-mode: forwards;
+  width: 5rem;
 `
 
 const GoldCoin = ({ display }:CSSProperties)=> {
-  switch (RandomArrs()) {
-    case goldCoin:
-      return (
-        <div id='GoldCoins'>
-          <CatchTextStyle display={display}>YOU GET THE TREASURE!</CatchTextStyle>
-          <LightStyle display={display}>
-            <img id='Light1' src={light}></img>
-            <img id='Light2' src={light}></img>
-            <img id='Light3' src={light}></img>
-          </LightStyle>
-          <GoldCoins display={display}> 
-            <img id='GoldCoin1' src={goldCoin}></img>
-            <img id='GoldCoin2' src={goldCoin}></img>
-            <img id='GoldCoin3' src={goldCoin}></img>
-            <img id='GoldCoin4' src={goldCoin}></img>
-          </GoldCoins>
-        </div>
-      )
-    case boomPaper:
-      return(
-        <BoomPaper display={display} src={boomPaper}></BoomPaper>
-      )
-  }
+  return (
+    <div id='GoldCoins'>
+      <CatchTextStyle display={display}>YOU GET THE TREASURE!</CatchTextStyle>
+      <LightStyle display={display}>
+        <img id='Light1' src={light}></img>
+        <img id='Light2' src={light}></img>
+        <img id='Light3' src={light}></img>
+      </LightStyle>
+      <GoldCoins display={display}> 
+        <img id='GoldCoin1' src={goldCoin}></img>
+        <img id='GoldCoin2' src={goldCoin}></img>
+        <img id='GoldCoin3' src={goldCoin}></img>
+        <img id='GoldCoin4' src={goldCoin}></img>
+      </GoldCoins>
+    </div>
+  )
 }
 
 export default GoldCoin;

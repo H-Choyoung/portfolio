@@ -10,7 +10,7 @@ import styled, { keyframes } from 'styled-components';
   const RandomArrs = () => {
     const randomDisplay = Math.floor(Math.random() * skulls.length);
     let randomResult = skulls[randomDisplay];
-    console.log(randomResult);
+    // console.log(randomResult);
     return randomResult;
   }
 
@@ -24,13 +24,12 @@ import styled, { keyframes } from 'styled-components';
   const SkullStyle = styled.img`
     display: ${(props) => props.display || "none"};
     position: absolute;
-    z-index: 1;
-    width: ${(props) => props.width || "95px"};
+    z-index: 2;
+    width: ${(props) => props.width || "5.3vw"};
     margin: ${(props) => props.margin || "0"};
-    left: ${(props) => props.left || "2.5rem"};
+    left: ${(props) => props.left || "1.5rem"};
     animation: ${SkullKey} 1.5s ease;
     animation-fill-mode: forwards;
-    transition: 0.3s;
     `
 
 const Skulls = ({ display }: CSSProperties) => {
@@ -47,9 +46,9 @@ const Skulls = ({ display }: CSSProperties) => {
         <SkullStyle
           display={display}
           src={skull1}
-          width={"56px"}
-          left={"7.5rem"}
-          margin={"2rem 0"}
+          width={"2.7vw"}
+          left={"6.5rem"}
+          // margin={"2rem 0"}
         ></SkullStyle>
       )
     case skull2:
@@ -57,8 +56,8 @@ const Skulls = ({ display }: CSSProperties) => {
         <SkullStyle
           display={display}
           src={skull2}
-          width={"84px"}
-          left={"5.5rem"}
+          width={"4vw"}
+          left={"4.5rem"}
           margin={"1rem 0"}
         ></SkullStyle>
       )
@@ -67,8 +66,8 @@ const Skulls = ({ display }: CSSProperties) => {
         <SkullStyle
           display={display}
           src={skull3}
-          width={"67px"}
-          left={"7.5rem"}
+          width={"3vw"}
+          left={"6.5rem"}
         ></SkullStyle>
       )
   }

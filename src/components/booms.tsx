@@ -23,7 +23,7 @@ let booms = [boom_blood, boom_leaf, boom];
   const BoomStyle = styled.img`
     display: ${(props) => props.display || "none"};
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     width: ${(props) => props.width || "95px"};
     margin: ${(props) => props.margin || "0"};
     left: ${(props) => props.left || "2.5rem"};
