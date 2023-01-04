@@ -9,8 +9,8 @@ import SilverCoins from './SilverCoin';
 import Booms from './booms';
 
 const Coffins = (
-  { setSelectItem, top, left, rotate}: { 
-  // setSelectItem: (val: any)=> void;
+  { setSelectItem, top, left, rotate}: 
+  { setSelectItem: (val: any)=> void;
   top?:string | number;
   left: string | number;
   rotate: string | number;
@@ -67,7 +67,7 @@ const Coffins = (
     const randomDisplay = Math.floor(Math.random() * itemList.length);
     let randomResult = itemList[randomDisplay];
     RandomItems.current = randomResult; //랜덤 아이템 요소 고정
-    console.log(RandomItems.current.type.name); //나오는 아이템 이름
+    // console.log(RandomItems.current.type.name); //나오는 아이템 이름
   }
   itemDisplay();
   
@@ -82,7 +82,7 @@ const Coffins = (
         ? RandomItems.current 
         : <></>
       }
-      {/* {setSelectItem(RandomItems.current.type.name)} */}
+      {setSelectItem(RandomItems.current.type.name)}
       {coffinCloseRandom === coffinCloseB
         ? <OpenCoffinStyle src={coffinOpenB}></OpenCoffinStyle>
         : <OpenCoffinStyle src={coffinOpenW}></OpenCoffinStyle>}
