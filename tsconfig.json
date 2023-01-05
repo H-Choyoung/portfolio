@@ -19,6 +19,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src", "noUse/Coffins_body.tsx", "noUse/Coffins_test2.tsx", "noUse/RandomArrs.tsx", "noUse/App_bak.tsx"],
+  "include": ["src", "noUse/Coffins_body.tsx", "noUse/Coffins_test2.tsx", "noUse/RandomArrs.tsx", "noUse/App_bak.tsx", "noUse/GoldCoin_bak.tsx", "noUse/GoldCoin_paper.tsx"],
   "exclude": ["node_modules"]
 }

@@ -1,73 +1,95 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import styled,{ keyframes } from 'styled-components';
 import "./App.css";
-import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import Coffins from './components/Coffins';
 
 const App = () => {
-  const [clicked, setClicked] = useState<any>("");
-  const [display, setDisplay] = useState<any>("none");
-  const [skullKey, setSkullKey] = useState<any>("");
-
-  let skullSpecial = "/img/skull_special.svg";
-  let coffinCloseB = "/img/coffin_close_black.svg";
-  let coffinOpenB = "/img/coffin_open_black.svg";
-
-  const CoffinKey = keyframes`
-    0% {left: 0px;}
-    100% {left: 50px; rotate: 23deg;}
-  `
-  const CoffinStyle = styled.img`
-    position: absolute; 
-    z-index: 3; 
-    animation: ${clicked} 1.3s ease-out;
-    animation-fill-mode: forwards;
-    `
-
-  const SkullKey = keyframes`
-    0% {right: 0px; opacity: 0;}
-    50% {right: 10px; opacity: 0%;}
-    70% {opacity: 0%; top: 0px;}
-    90% {opacity: 100%; top: -10px;}
-    100% {right: 70px; rotate: -23deg; opacity: 100%; top: 0px;}
-  `
-  const SkullStyle = styled.img`
-    display: ${display};
-    position: absolute;
-    width: 100px;
-    top: 1rem;
-    left: 2.5rem;
-    animation: ${skullKey} 1.5s ease;
-    animation-fill-mode: forwards;
-    transition: 0.3s;
-    `
-
-  const onClicked =()=> {
-    if (clicked === "" && display === "none"){
-      setClicked(CoffinKey)
-      setDisplay("block")
-      setSkullKey(SkullKey);
-    } else {
-      setClicked("");
-      setDisplay("none");
-      setSkullKey("");
-    }
+  const [selectItem, setSelectItem]= useState<any>("");
+  const getSelectItem =(val:any):void=> {
+    setSelectItem(val);
   }
-
+  console.log(selectItem);
+  
+  const BackContainer = styled.div`
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    /* 하위요소 */
+    #menuContainer {
+      width: 25vw;
+    }
+    #mainContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 65vw;
+      background-image: url("/img/background.svg");
+      background-size: 90%;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+    }
+    #itemContainer {
+      transform: translate(-50%, -50%);
+      position: absolute;
+      top: 22.5vh;
+      left: 34vw;
+    }
+    #sideContainer {
+      width: 10vw;
+    }
+    #web_left {
+      position: absolute;
+      z-index: 0;
+      width: 15vw;
+    }
+    #web_right {
+      position: absolute;
+      z-index: 0;
+      width: 17vw;
+      right: 0vw;
+      top: 0vw;
+    }
+    #web_right_round {
+      position: absolute;
+      z-index: 0;
+      width: 10vw;
+      right: 17vw;
+      top: -7vh;
+    }
+  `
   return (
-    <>
-    <div>
-      <CoffinStyle
-        id='coffin'
-        src={coffinCloseB}
-        onClick={onClicked}
-      ></CoffinStyle>
-      {/* <GoldCoin
-        display={display}
-      ></GoldCoin> */}
-      <SkullStyle src={skullSpecial}></SkullStyle>
-      <img src={coffinOpenB}></img>
-    </div>
-    </>
+    <BackContainer>
+      <div id='menuContainer'>
+        {/* <SelectedItem /> */}
+        <img id='web_left' src='/img/web_left.svg'></img>
+      </div>
+      <div id='mainContainer'>
+        <div id='itemContainer'>
+          {/* 첫째줄 */}
+          <Coffins setSelectItem={getSelectItem} left={"0"} rotate={"-1deg"} ></Coffins>
+          <Coffins setSelectItem={getSelectItem} left={"10vw"} rotate={"18deg"}></Coffins>
+          <Coffins setSelectItem={getSelectItem} left={"20vw"} rotate={"12deg"}></Coffins>
+          <Coffins setSelectItem={getSelectItem} left={"30vw"} rotate={"-1deg"}></Coffins>
+          <Coffins setSelectItem={getSelectItem} left={"38vw"} rotate={"4deg"}></Coffins>
+          {/* 둘째 setSelectItem={getSelectItem}줄 */}
+          <Coffins setSelectItem={getSelectItem} top={"9vw"} left={"0"} rotate={"1deg"}></Coffins>
+          <Coffins setSelectItem={getSelectItem} top={"9vw"} left={"11vw"} rotate={"10deg"}></Coffins>
+          <Coffins setSelectItem={getSelectItem} top={"11vw"} left={"20vw"} rotate={"-6deg"}></Coffins>
+          <Coffins setSelectItem={getSelectItem} top={"9vw"} left={"30vw"} rotate={"10deg"}></Coffins>
+          <Coffins setSelectItem={getSelectItem} top={"9vw"} left={"40vw"} rotate={"24deg"}></Coffins>
+          {/* 셋째 setSelectItem={getSelectItem}줄 */}
+          <Coffins setSelectItem={getSelectItem} top={"19vw"} left={"1vw"} rotate={"10deg"}></Coffins>
+          <Coffins setSelectItem={getSelectItem} top={"19vw"} left={"10vw"} rotate={"27deg"}></Coffins>
+          <Coffins setSelectItem={getSelectItem} top={"20.5vw"} left={"15vw"} rotate={"-13deg"}></Coffins>
+          <Coffins setSelectItem={getSelectItem} top={"18vw"} left={"28vw"} rotate={"21deg"}></Coffins>
+          <Coffins setSelectItem={getSelectItem} top={"19vw"} left={"38vw"} rotate={"17deg"}></Coffins>
+        </div>
+      </div>
+      <div id='sideContainer'>
+        <img id='web_right' src='/img/web_right.png'></img>
+        <img id='web_right_round' src='/img/web_right_round.svg'></img>
+      </div>
+    </BackContainer>
   )
 }
 export default App;

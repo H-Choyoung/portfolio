@@ -4,7 +4,8 @@ import styled, { keyframes } from 'styled-components';
 let boom_blood = "/img/boom_blood.svg";
 let boom_leaf = "/img/boom_leaf.svg";
 let boom = "/img/boom.svg";
-let booms = [boom_blood, boom_leaf, boom];
+let boomPaper = "/img/boom_paper.png";
+let booms = [boom_blood, boom_leaf, boom, boomPaper];
   
   const RandomArrs = () => {
     const randomDisplay = Math.floor(Math.random() * booms.length);
@@ -49,6 +50,16 @@ const Booms = ({ display }: CSSProperties) => {
           display={display}
           src={boom_leaf}
           left={"4.5rem"}
+          margin={"3rem 0"}
+        ></BoomStyle>
+      )
+    case boomPaper:
+      return (
+        <BoomStyle
+          display={display}
+          src={boomPaper}
+          width={"90px"}
+          left={"2.5rem"}
           margin={"3rem 0"}
         ></BoomStyle>
       )

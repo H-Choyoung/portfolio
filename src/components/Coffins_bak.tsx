@@ -6,7 +6,7 @@ import Randoms from './Randoms';
 import GoldCoin from './GoldCoin';
 import Skulls from './Skulls';
 import SilverCoins from './SilverCoin';
-import Booms from './booms';
+import Booms from './Booms';
 
 const Coffins = (
   { setSelectItem, top, left, rotate}: 

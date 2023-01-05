@@ -4,6 +4,15 @@ import styled, { keyframes } from 'styled-components';
 
 let light = "/img/light_yellow.svg";
 let goldCoin = "/img/gold_coin.svg";
+let boomPaper = "/img/boom_paper.png";
+let goldItems = [goldCoin, boomPaper];
+
+const RandomArrs = () => {
+  const randomDisplay = Math.floor(Math.random() * goldItems.length);
+  let randomResult = goldItems[randomDisplay];
+  // console.log(randomResult);
+  return randomResult;
+}
 
   /* 빛 효과 스타일 */
 const LightKey1 = keyframes`
@@ -117,23 +126,43 @@ const CatchTextStyle = styled.span`
   animation-fill-mode: forwards;
   `
 
+/* 꽝 종이 */
+const BoomPaper = styled.img`
+  width: 9rem;
+  display: ${(props) => props.display || "none"};
+  position: absolute;
+  z-index: 2;
+  left: 3rem;
+  margin: 3rem 0;
+  rotate: -7deg;
+  animation: ${GoldCoinKey} 1.3s ease;
+  animation-fill-mode: forwards;
+`
+
 const GoldCoin = ({ display }:CSSProperties)=> {
-  return (
-    <div id='GoldCoins'>
-      <CatchTextStyle display={display}>YOU GET THE TREASURE!</CatchTextStyle>
-      <LightStyle display={display}>
-        <img id='Light1' src={light}></img>
-        <img id='Light2' src={light}></img>
-        <img id='Light3' src={light}></img>
-      </LightStyle>
-      <GoldCoins display={display}> 
-        <img id='GoldCoin1' src={goldCoin}></img>
-        <img id='GoldCoin2' src={goldCoin}></img>
-        <img id='GoldCoin3' src={goldCoin}></img>
-        <img id='GoldCoin4' src={goldCoin}></img>
-      </GoldCoins>
-    </div>
-  )
+  switch (RandomArrs()) {
+    case goldCoin:
+      return (
+        <div id='GoldCoins'>
+          <CatchTextStyle display={display}>YOU GET THE TREASURE!</CatchTextStyle>
+          <LightStyle display={display}>
+            <img id='Light1' src={light}></img>
+            <img id='Light2' src={light}></img>
+            <img id='Light3' src={light}></img>
+          </LightStyle>
+          <GoldCoins display={display}> 
+            <img id='GoldCoin1' src={goldCoin}></img>
+            <img id='GoldCoin2' src={goldCoin}></img>
+            <img id='GoldCoin3' src={goldCoin}></img>
+            <img id='GoldCoin4' src={goldCoin}></img>
+          </GoldCoins>
+        </div>
+      )
+    case boomPaper:
+      return(
+        <BoomPaper display={display} src={boomPaper}></BoomPaper>
+      )
   }
+}
 
 export default GoldCoin;
