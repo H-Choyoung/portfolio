@@ -13,7 +13,7 @@ const SilverCoinKey = keyframes`
 const SilverCoinStyle = styled.div`
   display: ${(props) => props.display || "none"};
   position: absolute;
-  left: -6rem;
+  left: -7rem;
   z-index: 2;
   animation: ${SilverCoinKey} 1.3s ease;
   animation-fill-mode: forwards;

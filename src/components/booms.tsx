@@ -27,7 +27,7 @@ let booms = [boom_blood, boom_leaf, boom, boomPaper];
     z-index: 2;
     width: ${(props) => props.width || "95px"};
     margin: ${(props) => props.margin || "0"};
-    left: ${(props) => props.left || "2.5rem"};
+    left: ${(props) => props.left || "4rem"};
     animation: ${BoomKey} 1.5s ease;
     animation-fill-mode: forwards;
     transition: 0.3s;
@@ -40,7 +40,7 @@ const Booms = ({ display }: CSSProperties) => {
         <BoomStyle
           display={display}
           src={boom_blood}
-          left={"6.5rem"}
+          left={"3.5rem"}
           margin={"1rem 0"}
         ></BoomStyle>
         )
@@ -69,7 +69,7 @@ const Booms = ({ display }: CSSProperties) => {
           display={display}
           src={boom}
           width={"62px"}
-          left={"6.5rem"}
+          left={"4rem"}
           margin={"6rem 0"}
         ></BoomStyle>
       )

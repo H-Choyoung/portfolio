@@ -22,7 +22,7 @@ const App = () => {
         return console.log("꽝");
     }
   }
-
+  
   const BackContainer = styled.div`
     display: flex;
     width: 100vw;
